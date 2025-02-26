@@ -96,6 +96,8 @@ namespace CollectionsTest
     class Program
     {
         public static int HOW_MANY_NUMS = (int)Math.Pow(10, 6);
+
+        public static int HOW_MANY_RUNS = 10;
         // static void Main()
         // {
         //     Random rand = new Random();
@@ -104,26 +106,29 @@ namespace CollectionsTest
         //     
         // }
         public static void Main()
-        { 
-       
-            // Make a new random number generator for us to use.
-            // Using a fixed seed for reproducibility (not recommended in real applications)
-            Random rand = new Random(556401139);
+        {
+            for (int i = 0; i < HOW_MANY_RUNS; i++)
+            {
+                // Make a new random number generator for us to use.
+                // Using a fixed seed for reproducibility (not recommended in real applications)
+                Random rand = new Random(556401139);
 
-            var start = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-            new ArrayDemo(HOW_MANY_NUMS, rand);
-            long end = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-            Console.WriteLine($"Array Time: {(end - start) / 1000.0:F3} seconds");
+                var start = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+                new ArrayDemo(HOW_MANY_NUMS, rand);
+                long end = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+                Console.WriteLine($"Array Time: {(end - start) / 1000.0:F3} seconds");
 
-            start = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-            new VectorDemo(HOW_MANY_NUMS, rand);
-            end = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-            Console.WriteLine($"Vector Time: {(end - start) / 1000.0:F3} seconds");
+                start = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+                new VectorDemo(HOW_MANY_NUMS, rand);
+                end = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+                Console.WriteLine($"Vector Time: {(end - start) / 1000.0:F3} seconds");
 
-            start = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-            new LinkedListDemo(HOW_MANY_NUMS, rand);
-            end = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-            Console.WriteLine($"LinkedList Time: {(end - start) / 1000.0:F3} seconds");
+                start = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+                new LinkedListDemo(HOW_MANY_NUMS, rand);
+                end = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+                Console.WriteLine($"LinkedList Time: {(end - start) / 1000.0:F3} seconds"); 
+            }
+            
         }
     }
 }
