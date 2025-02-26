@@ -1,0 +1,1 @@
+For my test I will run the tests ten times instead of one to measure time difference between different runs.
