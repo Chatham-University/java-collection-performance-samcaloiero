@@ -107,6 +107,11 @@ namespace CollectionsTest
         // }
         public static void Main()
         {
+            //write code to gather ten results and compute average
+            //max, min, and analysis- standard deviation "what distribution look like?"
+            //show me this data on a chart
+            //have excel generate a chart
+            
             for (int i = 0; i < HOW_MANY_RUNS; i++)
             {
                 // Make a new random number generator for us to use.
